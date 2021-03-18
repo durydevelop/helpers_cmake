@@ -1,11 +1,21 @@
 ######
 # Initial stuffs
-set(DSTATUS ">> ")
+
+# Set DSTATUS prefix for messages
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+    # Stand-alone project
+    set(DSTATUS ">> ")
+else()
+    # Part of other project
+    set(DSTATUS ">>>> ")
+    message(${DSTATUS} "Library ${PROJECT_NAME} included as external project <<<<")
+endif()
+
 message(${DSTATUS} "CMake version: ${CMAKE_VERSION}")
 message(${DSTATUS} "gcc c++ version: ${CMAKE_CXX_COMPILER_VERSION}")
 
 # CMake helper scripts
-include(DPrintHelpers)
+include(${CMAKE_CURRENT_LIST_DIR}/DPrintHelpers.cmake)
 
 # set everything up for c++ 17 features
 set(CMAKE_CXX_STANDARD 17)

@@ -1,8 +1,12 @@
 ######
 # DPPLIB
 ##[[ Sorgenti in locale
-set(DPPLIB_DIR "../../../lib/libdpp")
-#set(DPPLIB_DIR "E:/Programming/Lib/cpp/libdpp")
+## usa DPPLIB_DIR
+message(${DSTATUS} "Finding libdpp...")
+if (NOT EXISTS ${DPPLIB_DIR})
+    message(FATAL_ERROR "DPPLIB_DIR not found. Please set correct DPPLIB_DIR var.")
+endif()
+message(${DSTATUS}  "in " ${DPPLIB_DIR})
 add_subdirectory(${DPPLIB_DIR} deps/libdpp)
 include_directories(${DPPLIB_DIR}/include)
 get_target_property(DPPLIB_SOURCES DPPLIB SOURCES)
