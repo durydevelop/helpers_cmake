@@ -1,4 +1,5 @@
 ######
+<<<<<<< HEAD
 ## Initial stuffs
 
 # Set DSTATUS prefix for messages
@@ -15,6 +16,7 @@ message(${DSTATUS} "CMake version: ${CMAKE_VERSION}")
 message(${DSTATUS} "gcc c++ version: ${CMAKE_CXX_COMPILER_VERSION}")
 
 # CMake helper scripts
+<<<<<<< HEAD
 include(DPrintHelpers)
 include(generate_product_version)
 
