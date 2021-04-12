@@ -1,5 +1,5 @@
 ######
-## Initial stuffs
+## Common usefull stuffs
 
 # Set DSTATUS prefix for messages
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
