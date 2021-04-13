@@ -1,4 +1,4 @@
-if(NOT WIN32)
+#if(NOT WIN32)
   string(ASCII 27 Esc)
   set(Endc        "${Esc}[m")
   set(Bold        "${Esc}[1m")
@@ -16,6 +16,13 @@ if(NOT WIN32)
   set(BoldMagenta "${Esc}[1;35m")
   set(BoldCyan    "${Esc}[1;36m")
   set(BoldWhite   "${Esc}[1;37m")
+#endif()
+
+if (NOT DCOLOR)
+    set(DCOLOR TRUE CACHE BOOL "Colors enabled")
+    message("${Red}Colors enabled: this is Red${Endc}")
 endif()
 
-message("${Red}This is Red${Endc}")
+
+
+

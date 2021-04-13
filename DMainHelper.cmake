@@ -1,6 +1,10 @@
 ######
 ## Common usefull stuffs
 
+######
+# Colors defines
+include(DCMakeColors)
+
 # Set DSTATUS prefix for messages
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
     # Stand-alone project
@@ -11,7 +15,7 @@ else()
     message(${DSTATUS} "Library ${PROJECT_NAME} included as external project <<<<")
 endif()
 
-message(${DSTATUS} "CMake version: ${CMAKE_VERSION}")
+message(${DSTATUS} ${Green} "CMake version: ${CMAKE_VERSION} ${Endc}")
 message(${DSTATUS} "gcc c++ version: ${CMAKE_CXX_COMPILER_VERSION}")
 
 # CMake helper scripts
