@@ -23,6 +23,14 @@ if (NOT DCOLOR)
     message("${Red}Colors enabled: this is Red${Endc}")
 endif()
 
+function(message_red)
+    message(${DSTATUS} ${Red} ${ARGV0} ${Endc})
+endfunction()
+
+function(message_green)
+    message(${DSTATUS} ${Green} ${ARGV0} ${Endc})
+endfunction()
+
 
 
 
