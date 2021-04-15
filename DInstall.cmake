@@ -34,7 +34,7 @@ set(LIB_INSTALL_DIR lib)
 set(SYSCONFIG_INSTALL_DIR etc/${PROJECT_NAME})
 include(CMakePackageConfigHelpers)
 configure_package_config_file(
-    cmake/Config.cmake.in
+    ${CMAKE_MODULE_PATH}/Config.cmake.in
         ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
     INSTALL_DESTINATION
         ${LIB_INSTALL_DIR}/${PROJECT_NAME}/cmake
