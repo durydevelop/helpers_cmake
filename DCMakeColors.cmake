@@ -2,7 +2,7 @@
   string(ASCII 27 Esc)
   set(Endc        "${Esc}[m")
   set(Bold        "${Esc}[1m")
-  set(Red         "${Esc}[31m")
+  set(RED         "${Esc}[31m"  CACHE STRING "Red")
   set(Green       "${Esc}[32m")
   set(Yellow      "${Esc}[33m")
   set(Blue        "${Esc}[34m")
@@ -20,8 +20,12 @@
 
 if (NOT DCOLOR)
     set(DCOLOR TRUE CACHE BOOL "Colors enabled")
-    message("${Red}Colors enabled: this is Red${Endc}")
+    message(RED "Colors enabled: this is Red${Endc}")
 endif()
+
+function(message_c)
+    message({$0} ${DSTATUS} ${Red} ${ARGV0} ${Endc})
+endfunction()
 
 function(message_red)
     message(${DSTATUS} ${Red} ${ARGV0} ${Endc})
@@ -29,6 +33,10 @@ endfunction()
 
 function(message_green)
     message(${DSTATUS} ${Green} ${ARGV0} ${Endc})
+endfunction()
+
+function(message_magenta)
+    message_magenta(${DSTATUS} ${Red} ${ARGV0} ${Endc})
 endfunction()
 
 
