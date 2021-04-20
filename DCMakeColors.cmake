@@ -2,7 +2,7 @@
   string(ASCII 27 Esc)
   set(END_COLOR   "${Esc}[m")
   set(BOLD        "${Esc}[1m")
-  set(RED         "${Esc}[31m"  CACHE STRING "Red")
+  set(RED         "${Esc}[31m")
   set(GREEN       "${Esc}[32m")
   set(YELLOW      "${Esc}[33m")
   set(BLUE        "${Esc}[34m")

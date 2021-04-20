@@ -1,14 +1,14 @@
 ######
 # DPPLIB
 ##[[ Sorgenti in locale
-## usa DPPLIB_DIR
+## usa LIBDPP_ROOT
 message(${DSTATUS} "Finding libdpp...")
-if (NOT EXISTS ${DPPLIB_DIR})
-    message(FATAL_ERROR "DPPLIB_DIR not found. Please set correct DPPLIB_DIR var.")
+if (NOT EXISTS ${DPPLIB_ROOT})
+    message(FATAL_ERROR "DPPLIB_ROOT not found. Please set correct DPPLIB_ROOT var.")
 endif()
-message(${DSTATUS}  "in " ${DPPLIB_DIR})
-add_subdirectory(${DPPLIB_DIR} deps/libdpp)
-include_directories(${DPPLIB_DIR}/include)
+message(${DSTATUS}  "in " ${DPPLIB_ROOT})
+add_subdirectory(${DPPLIB_ROOT} deps/libdpp)
+include_directories(${DPPLIB_ROOT}/include)
 get_target_property(DPPLIB_SOURCES DPPLIB SOURCES)
 target_sources(${PROJECT_NAME} PRIVATE ${DPPLIB_SOURCES})
 ##]]
