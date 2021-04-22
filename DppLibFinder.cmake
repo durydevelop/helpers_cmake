@@ -2,11 +2,15 @@
 # DPPLIB
 ##[[ Sorgenti in locale
 ## usa LIBDPP_ROOT
-message(${DSTATUS} "Finding libdpp...")
-if (NOT EXISTS ${DPPLIB_ROOT})
-    message(FATAL_ERROR "DPPLIB_ROOT not found. Please set correct DPPLIB_ROOT var.")
+message_c(${BOLD_MAGENTA} "Finding libdpp...")
+if (NOT ${DPPLIB_ROOT} STREQUAL "")
+    message_c(${BOLD_MAGENTA} "DPPLIB_ROOT set to ${DPPLIB_ROOT}")
 endif()
-message(${DSTATUS}  "in " ${DPPLIB_ROOT})
+
+if (NOT EXISTS ${DPPLIB_ROOT})
+    message(FATAL_ERROR "DPPLIB_ROOT not found. Please set correct DPPLIB_ROOT path")
+endif()
+
 add_subdirectory(${DPPLIB_ROOT} deps/libdpp)
 include_directories(${DPPLIB_ROOT}/include)
 get_target_property(DPPLIB_SOURCES DPPLIB SOURCES)
