@@ -12,11 +12,11 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
 else()
     # Part of other project
     set(DSTATUS ">>>> ")
-    message(${DSTATUS} "Library ${PROJECT_NAME} included as external project <<<<")
+    message_c(${BOLD_MAGENTA} "Library ${PROJECT_NAME} included as external project <<<<")
 endif()
 
-message_green("CMake version: ${CMAKE_VERSION}")
-message_green("gcc c++ version: ${CMAKE_CXX_COMPILER_VERSION}")
+message_c(${BOLD_GREEN} "CMake version: ${CMAKE_VERSION}")
+message_c(${BOLD_GREEN} "gcc c++ version: ${CMAKE_CXX_COMPILER_VERSION}")
 
 # CMake helper scripts
 include(DPrintHelpers)
