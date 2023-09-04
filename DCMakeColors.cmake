@@ -23,6 +23,7 @@ if (NOT DCOLOR)
     message(${RED} "Colors enabled: this is Red${END_COLOR}")
 endif()
 
+# Funcion for colored log
 function(message_c)
     message(${DSTATUS} ${ARGV0} ${ARGV1} ${END_COLOR})
 endfunction()

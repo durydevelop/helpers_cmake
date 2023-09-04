@@ -41,7 +41,7 @@ function(generate_product_version outfiles)
     set (oneValueArgs
         NAME
         BUNDLE
-        ICON
+        #ICON
         VERSION_MAJOR
         VERSION_MINOR
         VERSION_PATCH
