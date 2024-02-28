@@ -20,7 +20,7 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
 else()
     # Part of other project
     set(DSTATUS ">>>> ")
-    message_c(${BOLD_MAGENTA} "Library ${PROJECT_NAME} included as external project <<<<")
+    message_c(${BOLD_CYAN} "Library <${PROJECT_NAME}> included as external project <<<<")
 endif()
 
 # CMake helper scripts
@@ -28,8 +28,10 @@ include(DPrintHelpers)
 include(generate_product_version)
 
 message_c(${BOLD_GREEN} "CMake version: ${CMAKE_VERSION}")
-message_c(${BOLD_GREEN} "gcc c++ version: ${CMAKE_CXX_COMPILER_VERSION}")
-message_c(${BOLD_GREEN} "C++ std:  ${CMAKE_CXX_STANDARD}")
+message_c(${BOLD_GREEN} "Compiler: ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
+if (CMAKE_CXX_STANDARD)
+	message_c(${BOLD_GREEN} "C++ std: ${CMAKE_CXX_STANDARD}")
+endif()
 
 # set everything up for c++ 20 features
 #set(CMAKE_CXX_STANDARD 20)
