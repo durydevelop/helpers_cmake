@@ -70,8 +70,9 @@ Find Boost libraries specifing custom path, minimum version, and required compon
 
 .. code-block:: cmake
 
-  get_filename_component(BOOST_ROOT "../../../../lib/boost" ABSOLUTE) # same as BOOST_ROOT "../../../../lib/boost"
-  set (BOOST_FIND_ARGS 1.75 REQUIRED COMPONENTS filesystem)
+  get_filename_component(BOOST_ROOT_DIR "../../../../lib/boost" ABSOLUTE) # same as BOOST_ROOT_DIR "../../../../lib/boost"
+  set (Boost_FIND_ARGS 1.75 REQUIRED COMPONENTS filesystem)
+  set(Boost_ROOT ${BOOST_ROOT_DIR})
   include(DBoostFinder)
 
 #]=======================================================================]
@@ -82,9 +83,9 @@ Find Boost libraries specifing custom path, minimum version, and required compon
 
 message(${DSTATUS} "Project <${PROJECT_NAME}> is finding boost library...")
 if ((NOT DEFINED Boost_FOUND) OR (NOT ${Boost_FOUND}))
-	if (NOT ${BOOST_ROOT} STREQUAL "")
+	if (NOT ${Boost_ROOT} STREQUAL "")
         set(Boost_NO_SYSTEM_PATHS ON)
-		message(${DSTATUS} "BOOST_ROOT forced to " ${BOOST_ROOT})
+		message(${DSTATUS} "Boost_ROOT forced to " ${Boost_ROOT})
 	endif()
 	if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
 		message(${DSTATUS} "\tfor Windows")
