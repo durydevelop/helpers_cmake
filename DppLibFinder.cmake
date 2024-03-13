@@ -3,12 +3,12 @@
 ##[[ Sorgenti in locale
 ## usa DPPLIB_ROOT
 message_c(${BOLD_MAGENTA} "Finding DPPLIB...")
-if (NOT ${DPPLIB_ROOT} STREQUAL "")
-    message_c(${BOLD_MAGENTA} "DPPLIB_ROOT set to ${DPPLIB_ROOT}")
+if (NOT ${dpplib_ROOT} STREQUAL "")
+    message_c(${BOLD_MAGENTA} "dpplib_ROOT set to ${dpplib_ROOT}")
 endif()
 
-if (NOT EXISTS ${DPPLIB_ROOT})
-    message(FATAL_ERROR "DPPLIB_ROOT not found. Please set correct DPPLIB_ROOT path")
+if (NOT EXISTS ${dpplib_ROOT})
+    message(FATAL_ERROR "dpplib_ROOT not found. Please set correct dpplib_ROOT path")
 endif()
 ##]]
 
@@ -35,12 +35,12 @@ include_directories(${DPPLIB_ROOT}/include)
 target_link_libraries(${PROJECT_NAME} PRIVATE DPPLIB)
 #]]
 
-add_subdirectory(${DPPLIB_ROOT} deps/DPPLIB)
-include_directories(${PROJECT_NAME} PUBLIC ${DPPLIB_ROOT}/include)
-get_target_property(DPPLIB_SOURCES ${PROJECT_NAME} SOURCES)
+add_subdirectory(${dpplib_ROOT} _deps/dpplib)
+target_include_directories(${PROJECT_NAME} PUBLIC ${dpplib_ROOT}/include)
+get_target_property(DPPLIB_SOURCES dpplib SOURCES)
 target_sources(${PROJECT_NAME} PUBLIC ${DPPLIB_SOURCES})
 
-include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIR})
+#include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIR})
 
 # std::filesystem
 #target_link_libraries(${PROJECT_NAME}
